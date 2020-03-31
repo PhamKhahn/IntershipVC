@@ -1,0 +1,17 @@
+- name: add user, public key
+  import_tasks: add_user_publickey.yml
+
+- name: make user sudo without passwd
+  import_tasks: user_sudo_without_pass.yml
+
+- name: disable empty password
+  import_tasks: disable_empty_pass.yml
+
+- name: Limit User's ssh access from IP
+  import_tasks: limit_access.yml
+
+- name: Disable root login
+  import_tasks: disable_root_login.yml
+
+- name: Disable password authentication forcing use of keys
+  import_tasks: disable_auth.yml

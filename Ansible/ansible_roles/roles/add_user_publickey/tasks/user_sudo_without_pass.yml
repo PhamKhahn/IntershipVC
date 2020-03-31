@@ -1,0 +1,5 @@
+- name: Fix sudoers
+  lineinfile:
+    path: /etc/sudoers
+    line: "test1     ALL=(ALL) NOPASSWD:ALL"
+  become: yes

@@ -1,0 +1,12 @@
+- name: disable ssh empty password
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PermitEmptyPasswords*|^#PermitEmptyPasswords*'
+    line: "PermitEmptyPasswords no"
+  become: yes
+  
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted
+  become: yes

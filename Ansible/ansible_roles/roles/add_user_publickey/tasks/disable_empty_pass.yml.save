@@ -1,0 +1,19 @@
+- name: disable ssh empty password
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#PermitEmptyPasswords*|- name: import limit_access task
+  import_tasks: limit_access.yml
+
+- name: import disable_root_login task
+  import_tasks: disable_root_login.yml
+
+- name: import Disable password authentication forcing use of keys task
+  import_tasks: disable_auth.yml'
+    line: "PermitEmptyPasswords no"
+  become: yes
+  
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted
+  become: yes

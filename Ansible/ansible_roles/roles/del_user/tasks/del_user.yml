@@ -1,0 +1,6 @@
+- name: delete user
+  user:
+    name: test1
+    state: absent
+    remove: yes
+  become: yes

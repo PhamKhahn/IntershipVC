@@ -1,0 +1,2 @@
+- name: delete user
+  import_tasks: del_user.yml
